@@ -18,3 +18,7 @@ This repository contains two main folders:
 Node.js (v14.x or later) <br>
 npm (v6.x or later) <br>
 Python (v3.8 or later) <br>
+
+# Installation Instructions
+
+# 1. Clone the Repository
