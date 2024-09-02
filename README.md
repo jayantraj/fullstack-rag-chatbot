@@ -12,3 +12,9 @@ This repository contains two main folders:
 # Features
 **Frontend**: Real-time chat interface built with React, customizable chat bubbles, file upload support. <br>
 **Backend**: WebSocket server using FastAPI, PDF text extraction, text embedding using OpenAI, context-based response generation using Pinecone VectorDB.
+
+# Prerequisites
+
+Node.js (v14.x or later) <br>
+npm (v6.x or later) <br>
+Python (v3.8 or later) <br>
