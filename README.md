@@ -8,3 +8,7 @@ This repository contains two main folders:
 
 **rag-pdf-chatbot-frontend**: The React frontend for the chatbot.<br>
 **rag-pdf-chatbot-backend**: The Python backend using FastAPI for handling WebSocket connections and processing queries.
+
+# Features
+**Frontend**: Real-time chat interface built with React, customizable chat bubbles, file upload support. <br>
+**Backend**: WebSocket server using FastAPI, PDF text extraction, text embedding using OpenAI, context-based response generation using Pinecone VectorDB.
