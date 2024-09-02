@@ -50,5 +50,10 @@ uvicorn main_websockets:app --host 0.0.0.0 --port 8000 --reload <br>
 Ensure both the frontend and backend servers are running. <br>
 The frontend (React app) will connect to the backend via WebSocket at ws://localhost:8000/ws. <br>
 
+# Demo
+
+https://github.com/user-attachments/assets/6d5f72a9-3ddd-43fe-b3e7-865cc8f6698c
+
+
 
 
