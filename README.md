@@ -23,5 +23,5 @@ Python (v3.8 or later) <br>
 
 # 1. Clone the Repository
 
-git clone https://github.com/yourusername/fullstack-rag-chatbot.git
-cd fullstack-rag-chatbot
+**git clone https://github.com/yourusername/fullstack-rag-chatbot.git** <br>
+**cd fullstack-rag-chatbot**
