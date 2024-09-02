@@ -35,6 +35,9 @@ npm start <br>
 # 3. Setup Backend
 cd ../rag-pdf-chatbot-backend <br>
 pip install -r requirements.txt <br>
+
+Create a .env file in the rag-pdf-chatbot-backend directory and add your API keys <br>
+
 python main_websockets.py <br>
 
 
