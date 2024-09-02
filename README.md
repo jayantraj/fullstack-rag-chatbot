@@ -22,3 +22,6 @@ Python (v3.8 or later) <br>
 # Installation Instructions
 
 # 1. Clone the Repository
+
+git clone https://github.com/yourusername/fullstack-rag-chatbot.git
+cd fullstack-rag-chatbot
