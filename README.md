@@ -22,20 +22,20 @@ Python (v3.8 or later) <br>
 # Installation Instructions
 
 # 1. Clone the repository
-git clone https://github.com/jayantraj/fullstack-rag-chatbot.git
-cd fullstack-rag-chatbot
+git clone https://github.com/jayantraj/fullstack-rag-chatbot.git <br>
+cd fullstack-rag-chatbot <br>
 
 # 2. Setup Frontend
-cd rag-pdf-chatbot-frontend
-npm install
-npm start
+cd rag-pdf-chatbot-frontend <br>
+npm install <br>
+npm start <br>
 
 **The frontend should now be running on http://localhost:3000.** <br>
 
 # 3. Setup Backend
-cd ../rag-pdf-chatbot-backend
-pip install -r requirements.txt
-python main_websockets.py 
+cd ../rag-pdf-chatbot-backend <br>
+pip install -r requirements.txt <br>
+python main_websockets.py <br>
 
 
 
