@@ -36,7 +36,10 @@ npm start <br>
 cd ../rag-pdf-chatbot-backend <br>
 pip install -r requirements.txt <br>
 
-Create a .env file in the rag-pdf-chatbot-backend directory and add your API keys <br>
+**Create a .env file in the rag-pdf-chatbot-backend directory and add your API keys** <br>
+
+PINECONE_API_KEY=your_pinecone_api_key <br>
+OPENAI_API_KEY=your_openai_api_key  <br>
 
 python main_websockets.py <br>
 
