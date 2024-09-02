@@ -41,7 +41,7 @@ pip install -r requirements.txt <br>
 PINECONE_API_KEY=your_pinecone_api_key <br>
 OPENAI_API_KEY=your_openai_api_key  <br>
 
-**Start the backend server with uvicorn**
+**Start the backend server with uvicorn** <br>
 uvicorn main_websockets:app --host 0.0.0.0 --port 8000 --reload <br>
 
 
