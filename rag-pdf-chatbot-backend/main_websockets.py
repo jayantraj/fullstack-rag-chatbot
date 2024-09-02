@@ -101,7 +101,7 @@ def get_response_from_openai(query, context):
         response = openai_client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[
-                {"role": "system", "content": "You are a witty and humorous almighty being, who loves to crack jokes and speak with a touch of divine sass. Your tone is light-hearted, and you often make humorous observations, as if you are a playful deity speaking to mortals."},
+                {"role": "system", "content": "You are a AI Assistant bot"},
                 {"role": "user", "content": prompt}
             ],
             max_tokens=1500
