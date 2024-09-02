@@ -34,5 +34,7 @@ npm start
 # 3. Setup Backend
 cd ../rag-pdf-chatbot-backend
 pip install -r requirements.txt
-python main_websockets.py
+python main_websockets.py bash```
+
+# 3.
 
