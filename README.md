@@ -51,11 +51,11 @@ Ensure both the frontend and backend servers are running. <br>
 The frontend (React app) will connect to the backend via WebSocket at ws://localhost:8000/ws. <br>
 
 
-## CI/CD Pipeline
+# 5. CI/CD Pipeline
 
 This project uses a Continuous Integration and Continuous Deployment (CI/CD) pipeline to ensure smooth and automated building, testing, and deploying of the application. The pipeline is built using GitHub Actions and Docker.
 
-### Overview of the CI/CD Pipeline:
+## Overview of the CI/CD Pipeline:
 
 1. **Triggered on Push**:
    The pipeline is triggered automatically whenever code is pushed to the `main` branch.
@@ -75,7 +75,7 @@ This project uses a Continuous Integration and Continuous Deployment (CI/CD) pip
    
 5. **Docker Image Building and Pushing**:
    - Docker images for both the frontend and backend are built.
-   - The images are tagged and pushed to Docker Hub (e.g., `jayantraj07/rag-pdf-chatbot-backend`).
+   - The images are tagged and pushed to Docker Hub.
 
 
 # Demo
