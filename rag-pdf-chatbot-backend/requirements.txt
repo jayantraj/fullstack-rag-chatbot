@@ -5,7 +5,6 @@ PyMuPDF
 openai
 pinecone-client
 
-# Add these for testing:
 pytest  # Testing framework
 fastapi[test]  # FastAPI's testing tools, including TestClient
 httpx  # Required for WebSocket testing
