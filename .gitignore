@@ -1,0 +1,2 @@
+# Ignore environment variables in backend
+rag-pdf-chatbot-backend/.env
