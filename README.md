@@ -50,6 +50,34 @@ uvicorn main_websockets:app --host 0.0.0.0 --port 8000 --reload <br>
 Ensure both the frontend and backend servers are running. <br>
 The frontend (React app) will connect to the backend via WebSocket at ws://localhost:8000/ws. <br>
 
+
+# 5. CI/CD Pipeline
+
+This project uses a Continuous Integration and Continuous Deployment (CI/CD) pipeline to ensure smooth and automated building, testing, and deploying of the application. The pipeline is built using GitHub Actions and Docker.
+
+## Overview of the CI/CD Pipeline:
+
+1. **Triggered on Push**:
+   The pipeline is triggered automatically whenever code is pushed to the `main` branch.
+
+2. **Frontend Setup**:
+   - The Node.js environment is set up.
+   - Firebase environment variables for the frontend are set using GitHub secrets.
+   - Frontend dependencies are installed, and the app is built using `npm run build`.
+
+3. **Backend Setup**:
+   - Python environment is set up with version 3.9.
+   - Backend dependencies are installed from the `requirements.txt` file.
+   - Environment variables, such as the OpenAI API key and Pinecone API key, are set using GitHub secrets.
+
+4. **Testing**:
+   - Backend tests are run using `pytest` to ensure the backend functions correctly.
+   
+5. **Docker Image Building and Pushing**:
+   - Docker images for both the frontend and backend are built.
+   - The images are tagged and pushed to Docker Hub.
+
+
 # Demo
 
 https://github.com/user-attachments/assets/6d5f72a9-3ddd-43fe-b3e7-865cc8f6698c
