@@ -4,12 +4,9 @@ python-dotenv
 PyMuPDF
 openai
 pinecone-client
-<<<<<<< HEAD
 
 # Add these for testing:
 pytest  # Testing framework
 fastapi[test]  # FastAPI's testing tools, including TestClient
 httpx  # Required for WebSocket testing
 
-=======
->>>>>>> a1d4aa79bdfd0084843f3610c1f4669207f7afdc
