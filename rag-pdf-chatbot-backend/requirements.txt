@@ -7,5 +7,5 @@ pinecone-client
 
 pytest  # Testing framework
 fastapi[test]  # FastAPI's testing tools, including TestClient
-httpx  # Required for WebSocket testing
+httpx  # Required for WebSocket testings
 
