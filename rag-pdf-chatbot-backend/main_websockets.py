@@ -101,7 +101,11 @@ def get_response_from_openai(query, context):
         response = openai_client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[
+<<<<<<< HEAD
                 {"role": "system", "content": "You are a witty and humorous almighty being, who loves to crack jokes and speak with a touch of divine sass. Your tone is light-hearted, and you often make humorous observations, as if you are a playful deity speaking to mortals."},
+=======
+                {"role": "system", "content": "You are a AI Assistant bot"},
+>>>>>>> a1d4aa79bdfd0084843f3610c1f4669207f7afdc
                 {"role": "user", "content": prompt}
             ],
             max_tokens=1500
@@ -111,6 +115,7 @@ def get_response_from_openai(query, context):
         print(f"OpenAI API error: {e}")  # Print detailed error message
         return f"An error occurred while fetching the response from OpenAI: {e}"
 
+<<<<<<< HEAD
 # defines the websocket route at /ws
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket):
@@ -118,6 +123,11 @@ async def websocket_endpoint(websocket: WebSocket):
     await websocket.accept()
 
     # keeps the connection open for continous communication
+=======
+@app.websocket("/ws")
+async def websocket_endpoint(websocket: WebSocket):
+    await websocket.accept()
+>>>>>>> a1d4aa79bdfd0084843f3610c1f4669207f7afdc
     while True:
         data = await websocket.receive_text()
         query_request = json.loads(data)
@@ -141,11 +151,16 @@ async def websocket_endpoint(websocket: WebSocket):
             response = "I can't answer from the given PDFs."
 
         serializable_results = [{"score": match['score'], "metadata": match.get('metadata', {})} for match in results]
+<<<<<<< HEAD
 
         # sending the open AI generated response back to the frontend
         await websocket.send_text(json.dumps({"response": response, "results": serializable_results}))
 
 # FAST API POST Endpoint. User can upload the PDF directly to the backend
+=======
+        await websocket.send_text(json.dumps({"response": response, "results": serializable_results}))
+
+>>>>>>> a1d4aa79bdfd0084843f3610c1f4669207f7afdc
 @app.post("/upload_pdfs/")
 async def upload_pdfs(files: List[UploadFile] = File(...)):
     for file in files:
