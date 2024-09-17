@@ -107,11 +107,14 @@ jobs:
     # Optionally push the "latest" tag as well
     - name: Push latest tag for frontend
       run: docker tag jayantraj07/rag-pdf-chatbot-frontend:${{ github.sha }} jayantraj07/rag-pdf-chatbot-frontend:latest
+
     - name: Push latest for frontend
       run: docker push jayantraj07/rag-pdf-chatbot-frontend:latest
 
     - name: Push latest tag for backend
       run: docker tag jayantraj07/rag-pdf-chatbot-backend:${{ github.sha }} jayantraj07/rag-pdf-chatbot-backend:latest
+
     - name: Push latest for backend
       run: docker push jayantraj07/rag-pdf-chatbot-backend:latest
+
 
