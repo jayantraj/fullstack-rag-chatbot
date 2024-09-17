@@ -37,14 +37,14 @@ jobs:
 
     # Step 3: Set environment variables for the frontend (Firebase)
     - name: Set Firebase environment variables for frontend
-      run: |
-        echo "REACT_APP_FIREBASE_API_KEY=${{ secrets.FIREBASE_API_KEY }}" >> $GITHUB_ENV
-        echo "REACT_APP_FIREBASE_AUTH_DOMAIN=${{ secrets.FIREBASE_AUTH_DOMAIN }}" >> $GITHUB_ENV
-        echo "REACT_APP_FIREBASE_PROJECT_ID=${{ secrets.FIREBASE_PROJECT_ID }}" >> $GITHUB_ENV
-        echo "REACT_APP_FIREBASE_STORAGE_BUCKET=${{ secrets.FIREBASE_STORAGE_BUCKET }}" >> $GITHUB_ENV
-        echo "REACT_APP_FIREBASE_MESSAGING_SENDER_ID=${{ secrets.FIREBASE_MESSAGING_SENDER_ID }}" >> $GITHUB_ENV
-        echo "REACT_APP_FIREBASE_APP_ID=${{ secrets.FIREBASE_APP_ID }}" >> $GITHUB_ENV
-        echo "REACT_APP_FIREBASE_MEASUREMENT_ID=${{ secrets.FIREBASE_MEASUREMENT_ID }}" >> $GITHUB_ENV
+      env:
+        REACT_APP_FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY }}
+        REACT_APP_FIREBASE_AUTH_DOMAIN: ${{ secrets.FIREBASE_AUTH_DOMAIN }}
+        REACT_APP_FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
+        REACT_APP_FIREBASE_STORAGE_BUCKET: ${{ secrets.FIREBASE_STORAGE_BUCKET }}
+        REACT_APP_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.FIREBASE_MESSAGING_SENDER_ID }}
+        REACT_APP_FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }}
+        REACT_APP_FIREBASE_MEASUREMENT_ID: ${{ secrets.FIREBASE_MEASUREMENT_ID }}
 
     # Step 4: Install frontend dependencies
     - name: Install frontend dependencies
@@ -72,9 +72,9 @@ jobs:
 
     # Step 8: Set environment variables for the backend
     - name: Set environment variables for backend
-      run: |
-        echo "OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}" >> $GITHUB_ENV
-        echo "PINECONE_API_KEY=${{ secrets.PINECONE_API_KEY }}" >> $GITHUB_ENV
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        PINECONE_API_KEY: ${{ secrets.PINECONE_API_KEY }}
 
     # Step 9: Run backend tests
     - name: Test backend
@@ -90,16 +90,28 @@ jobs:
     - name: Log in to Docker Hub
       run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
-    # Step 12: Build Docker images for frontend and backend
+    # Step 12: Build Docker images for frontend and backend (using commit SHA for tagging)
     - name: Build Docker image for frontend
-      run: docker build -t jayantraj07/rag-pdf-chatbot-frontend ./rag-pdf-chatbot-frontend
+      run: docker buildx build --platform linux/amd64,linux/arm64 -t jayantraj07/rag-pdf-chatbot-frontend:${{ github.sha }} ./rag-pdf-chatbot-frontend
 
     - name: Build Docker image for backend
-      run: docker build -t jayantraj07/rag-pdf-chatbot-backend ./rag-pdf-chatbot-backend
+      run: docker buildx build --platform linux/amd64,linux/arm64 -t jayantraj07/rag-pdf-chatbot-backend:${{ github.sha }} ./rag-pdf-chatbot-backend
 
-    # Step 13: Push Docker images to Docker Hub
+    # Step 13: Push Docker images to Docker Hub with commit SHA tag
     - name: Push Docker image for frontend
-      run: docker push jayantraj07/rag-pdf-chatbot-frontend
+      run: docker push jayantraj07/rag-pdf-chatbot-frontend:${{ github.sha }}
 
     - name: Push Docker image for backend
-      run: docker push jayantraj07/rag-pdf-chatbot-backend
+      run: docker push jayantraj07/rag-pdf-chatbot-backend:${{ github.sha }}
+
+    # Optionally push the "latest" tag as well
+    - name: Push latest tag for frontend
+      run: docker tag jayantraj07/rag-pdf-chatbot-frontend:${{ github.sha }} jayantraj07/rag-pdf-chatbot-frontend:latest
+    - name: Push latest for frontend
+      run: docker push jayantraj07/rag-pdf-chatbot-frontend:latest
+
+    - name: Push latest tag for backend
+      run: docker tag jayantraj07/rag-pdf-chatbot-backend:${{ github.sha }} jayantraj07/rag-pdf-chatbot-backend:latest
+    - name: Push latest for backend
+      run: docker push jayantraj07/rag-pdf-chatbot-backend:latest
+
